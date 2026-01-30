@@ -9,7 +9,7 @@ import time
 # ---------------- CONFIG ----------------
 BIN_ID = "BIN_001"
 API_ENDPOINT = "https://ingestbinevent-t4vkrtxd5q-uc.a.run.app"
-SEND_API_EVENTS = False   # ⚠️ KEEP FALSE unless app team confirms
+SEND_API_EVENTS = True   # ⚠️ KEEP FALSE unless app team confirms
 # ---------------------------------------
 
 
@@ -22,7 +22,7 @@ def main():
     api_client = ApiClient(API_ENDPOINT)
 
     # Simulated sensor values
-    simulated_fill_levels = [25, 70, 100, 100, 0]
+    simulated_fill_levels = [70, 20, 100, 50, 0]
 
     print("\nStarting FULL bin pipeline simulation...\n")
 
@@ -47,7 +47,29 @@ def main():
             final_class = "mixed"
 
         # -------------------------------
-        # Event generation
+        # 🔧 FIX: Explicit BIN_EMPTIED handling
+        # -------------------------------
+        if fill_level == 0:
+            event = {
+                "binId": BIN_ID,
+                "subBin": final_class,
+                "eventType": "BIN_EMPTIED",
+                "fillLevel": 0
+            }
+
+            print("Event → BIN_EMPTIED | Fill: 0")
+
+            if SEND_API_EVENTS:
+                api_client.send_event(event)
+            else:
+                print("[API] Dry run (not sent)")
+
+            print()
+            time.sleep(1)
+            continue
+
+        # -------------------------------
+        # Normal event generation
         # -------------------------------
         events = event_manager.evaluate(
             sub_bin=final_class,

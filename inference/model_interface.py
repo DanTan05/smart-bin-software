@@ -22,7 +22,7 @@ class ModelInterface:
         predicted_class = random.choice(self.classes)
         confidence = round(random.uniform(0.5, 0.99), 2)
         return predicted_class, confidence
-
-'''        predicted_class = "mixed"
+    
+'''        predicted_class = "organic"
         confidence = 0.99
-        '''
+        return predicted_class, confidence'''
