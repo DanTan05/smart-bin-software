@@ -1,0 +1,61 @@
+# === Core ML (TF/Keras 2.x stack) ===
+tensorflow==2.15.0
+tensorflow-estimator==2.15.0
+keras==2.15.0
+tensorboard==2.15.2
+tensorboard-data-server==0.7.2
+tensorflow-io-gcs-filesystem==0.31.0
+# If you're on Intel CPU and used it previously, you can swap the base TF for this:
+# tensorflow-intel==2.15.0
+
+# === Numerics / SciPy stack (compatible with TF 2.15 on Py3.10) ===
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.7.2
+joblib==1.5.3
+threadpoolctl==3.6.0
+ml-dtypes==0.2.0
+
+# === Model I/O / utils ===
+h5py==3.15.1
+protobuf==4.25.8
+packaging==26.0
+typing_extensions==4.15.0
+six==1.17.0
+opt_einsum==3.4.0
+gast==0.7.0
+google-pasta==0.2.0
+wrapt==1.14.2
+termcolor==3.3.0
+absl-py==2.4.0
+
+# === Data & Vision ===
+opencv-python==4.9.0.80
+pillow==12.1.1
+matplotlib==3.10.8
+python-dateutil==2.9.0.post0
+kiwisolver==1.4.9
+cycler==0.12.1
+contourpy==1.3.2
+fonttools==4.61.1
+pyparsing==3.3.2
+
+# === Networking / API client (if needed during training or data pulls) ===
+requests==2.32.5
+urllib3==2.6.3
+idna==3.11
+certifi==2026.1.4
+charset-normalizer==3.4.4
+
+# === Optional: Google/OAuth (if you actually use TensorBoard auth, Drive, etc.) ===
+google-auth==2.48.0
+google-auth-oauthlib==1.2.4
+oauthlib==3.3.1
+rsa==4.9.1
+pyasn1==0.6.2
+pyasn1_modules==0.4.2
+
+# === Markup (TensorBoard/Werkzeug support) ===
+Markdown==3.10.2
+MarkupSafe==3.0.3
+Werkzeug==3.1.5
