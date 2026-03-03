@@ -68,6 +68,13 @@ Camera Image → Quality Check → MobileNetV2 Inference → Temperature Scaling
 
 ## How to Run
 
+### Download the Model
+1. Go to the **Releases** section on the right side of this GitHub repository.
+2. Download `waste_classifier.tflite` (the deployment model).
+3. Place the file inside the `pipeline/inference/` directory.
+
+*(Note: There is also a `waste_classifier.keras` file in the release. You only need this if you plan to retrain the model or run evaluate.py (add images to dataset/test first); the pipeline only needs the `.tflite` file).*
+
 ### Pipeline (classification)
 
 ```bash
